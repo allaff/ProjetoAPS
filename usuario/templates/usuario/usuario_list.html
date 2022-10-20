@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+{% block content %}
+  <li>
+    <a href="{%url 'usuario.novo'%}">Novo</a>
+  </li>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>Senha</th>
+        <th>CPF</th>
+        <th>Telefone</th>
+        <th>Conectado</th>
+      </tr>
+      <tbody>
+        {% for usuario in objects_list %}
+        <tr>
+          <td>{{usuario.nome}}</td>
+          <td>{{usuario.email}}</td>
+          <td>{{usuario.senha}}</td>
+          <td>{{usuario.cpf}}</td>
+          <td>{{usuario.telefone}}</td>
+          <td>{{usuario.ativo}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </thead>
+  </table>
+{% endblock content %}
