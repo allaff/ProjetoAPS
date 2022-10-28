@@ -1,8 +1,9 @@
 {% extends 'main/base.html' %}
 {% block content %}
-  <li>
-    <a href="{%url 'usuario.novo'%}">Novo</a>
-  </li>
+  <form method="GET">
+    <input type="text" name="nome" placeholder="Buscar por nome"/>
+    <input type="submit" value="Buscar"/>
+  </form>
   <table>
     <thead>
       <tr>
@@ -10,21 +11,38 @@
         <th>E-mail</th>
         <th>Senha</th>
         <th>CPF</th>
+        <th>Data de Nascimento</th>
         <th>Telefone</th>
-        <th>Conectado</th>
+        <th>Endereço</th>
+        <th>Ativo</th>
+        <th>Editar</th>
       </tr>
       <tbody>
-        {% for usuario in objects_list %}
-        <tr>
-          <td>{{usuario.nome}}</td>
-          <td>{{usuario.email}}</td>
-          <td>{{usuario.senha}}</td>
-          <td>{{usuario.cpf}}</td>
-          <td>{{usuario.telefone}}</td>
-          <td>{{usuario.ativo}}</td>
-        </tr>
+        {% for usuario in object_list %}
+          <tr>
+            <td>{{usuario.nome}}</td>
+            <td>{{usuario.email}}</td>
+            <td>{{usuario.senha}}</td>
+            <td>{{usuario.cpf}}</td>
+            <td>{{usuario.data_nascimento}}</td>
+            <td>{{usuario.telefone}}</td>
+            <td>{{usuario.endereco}}</td>
+            <td>
+              {% if usuario.ativo %}
+                Sim
+                {% else %}
+                  Não
+              {% endif %}
+            </td>
+            <td>
+              <a href="{%url 'usuario.editar' usuario.pk%}"> Editar</a>
+              <a href="{%url 'usuario.excluir' usuario.pk%}"> Excluir</a>
+            </td>
+          </tr>
         {% endfor %}
       </tbody>
     </thead>
   </table>
+
+  <a href="{%url 'usuario.novo'%}">Criar um novo cadastro</a>
 {% endblock content %}
