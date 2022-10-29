@@ -10,9 +10,4 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AddField(
-            model_name='usuario',
-            name='data_nascimento',
-            field=models.DateField(null=True),
-        ),
     ]
