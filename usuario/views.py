@@ -24,9 +24,9 @@ class UsuarioCreateView(CreateView):
   form_class = UsuarioForm
   success_url = '/usuarios/'
 
-  def form_invalid(self, form):
+  def form_valid(self, form):
      form.instance.usuario=self.request.user
-     return super().form_invalid(form)
+     return super().form_valid(form)
 
 class UsuarioUpdateView(UpdateView):
     model = Usuario

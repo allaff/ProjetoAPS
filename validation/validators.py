@@ -2,7 +2,7 @@ from django.core.exceptions import ValidationError
 
 def valida_cpf(value):
     if(len(str(value)) != 11):
-        raise ValidationError ('ERRO! CPF INCOMPLETO!')
+        raise ValidationError ('ERRO! CPF INCORRETO!')
     else:
         return value
     
