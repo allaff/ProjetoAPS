@@ -15,7 +15,8 @@
         <th>Telefone</th>
         <th>Endereço</th>
         <th>Ativo</th>
-        <th>Editar</th>
+        <th>︙</th>
+        <th>Foto</th>
       </tr>
       <tbody>
         {% for usuario in object_list %}
@@ -38,6 +39,13 @@
               <a href="{%url 'usuario.editar' usuario.pk%}"> Editar</a>
               <a href="{%url 'usuario.excluir' usuario.pk%}"> Excluir</a>
             </td>
+            <td>
+              {% if usuario.image %}
+              <a href="{{ usuario.image.url }}" target="_blank">
+                  <img src="{{ usuario.image.url }}" width="100">
+              </a>
+              {% endif %}
+          </td>
           </tr>
         {% endfor %}
       </tbody>

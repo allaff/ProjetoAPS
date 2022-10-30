@@ -12,6 +12,7 @@ class Usuario(models.Model):
   endereco = models.CharField(max_length=256, null=True, blank=True)
   ativo = models.BooleanField(default=True)
   usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+  image = models.ImageField(upload_to='images/', null=True)
 
   def __str__(self) -> str:
     return self.nome
