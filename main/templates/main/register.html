@@ -1,28 +1,16 @@
+{% extends 'main/base.html' %}
+{% block content %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <title>Document</title>
-</head>
-<body>
-    {% extends 'main/base.html' %}
-        {% block content %}
-        <div class="">
-            <h1>Cadastre-se</h1>
-            <form method="POST">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button class="btn btn-primary" type="submit">Cadastrar</button>
-            </form>
-            <p class="text-center">Já possui conta? <a href="/accounts/login">Entrar</a>.</p>
-        </div>
-    {% endblock %}
-
+    <div class="">
+        <h1>Cadastre-se</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-primary" type="submit">Cadastrar</button>
+        </form>
+        <p class="text-center">Já possui conta? <a href="/accounts/login">Entrar</a>.</p>
+    </div>
     <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-</body>
-</html>
+'   <script src="{% static 'js/bootstrap.min.js' %}"></script>
+{% endblock %}

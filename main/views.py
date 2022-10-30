@@ -6,7 +6,7 @@ from main.forms import NovoUsuarioForm
 from django.contrib.auth import login
 
 class HomeView(TemplateView):
-    template_name = 'main/base.html'
+    template_name = 'main/index.html'
 
 def register(request):
     if request.method == "POST":
