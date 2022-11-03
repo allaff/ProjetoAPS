@@ -1,0 +1,10 @@
+{% load static %}
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<form method="post">
+  {% csrf_token %}
+  <p>Tem certeza de que deseja excluir "{{ object }}" ?</p>
+  <input type="submit" value="Excluir">
+</form>
+
+<script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>

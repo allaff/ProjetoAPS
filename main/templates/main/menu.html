@@ -1,0 +1,13 @@
+{% if user.is_authenticated %}
+{% load static %}
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <ul>
+    <li><a href="{%url 'home'%}">Home</a></li>
+    <li><a href="{%url 'usuario.index'%}">Listagem de usuários</a></li>
+    <li><a href="{%url 'logout'%}">Logout</a></li>
+  </ul>
+
+  <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+{% endif %}  
+ 

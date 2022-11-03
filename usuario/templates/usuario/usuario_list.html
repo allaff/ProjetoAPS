@@ -1,0 +1,62 @@
+{% extends 'main/base.html' %}
+{% block content %}
+{% load static %}
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <form method="GET">
+    <input type="text" name="nome" placeholder="Buscar por nome"/>
+    <input type="submit" value="Buscar"/>
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>Senha</th>
+        <th>CPF</th>
+        <th>Data de Nascimento</th>
+        <th>Telefone</th>
+        <th>Endereço</th>
+        <th>Ativo</th>
+        <th>︙</th>
+        <th>Foto</th>
+      </tr>
+      <tbody>
+        {% for usuario in object_list %}
+          <tr>
+            <td>{{usuario.nome}}</td>
+            <td>{{usuario.email}}</td>
+            <td>{{usuario.senha}}</td>
+            <td>{{usuario.cpf}}</td>
+            <td>{{usuario.data_nascimento}}</td>
+            <td>{{usuario.telefone}}</td>
+            <td>{{usuario.endereco}}</td>
+            <td>
+              {% if usuario.ativo %}
+                Sim
+                {% else %}
+                  Não
+              {% endif %}
+            </td>
+            <td>
+              <a href="{%url 'usuario.editar' usuario.pk%}"> Editar</a>
+              <a href="{%url 'usuario.excluir' usuario.pk%}"> Excluir</a>
+            </td>
+            <td>
+              {% if usuario.image %}
+              <a href="{{ usuario.image.url }}" target="_blank">
+                  <img src="{{ usuario.image.url }}" width="100">
+              </a>
+              {% endif %}
+          </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </thead>
+  </table>
+
+  <a href="{%url 'usuario.novo'%}">Criar um novo cadastro</a>
+
+
+  <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+{% endblock content %}
