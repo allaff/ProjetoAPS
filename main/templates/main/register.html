@@ -2,15 +2,18 @@
 {% block content %}
 {% load static %}
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <div class="">
-        <h1>Cadastre-se</h1>
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="btn btn-primary" type="submit">Cadastrar</button>
-        </form>
-        <p class="text-center">Já possui conta? <a href="/accounts/login">Entrar</a>.</p>
+    <div class="row">
+        <div class="col">
+            <h1>Cadastre-se</h1>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-primary" type="submit">Cadastrar</button>
+            </form>
+            <p class="text-center">Já possui conta? <a href="/accounts/login">Entrar</a>.</p>
+        </div>
     </div>
+    
     <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
 '   <script src="{% static 'js/bootstrap.min.js' %}"></script>
 {% endblock %}
