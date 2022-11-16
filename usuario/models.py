@@ -4,7 +4,7 @@ from validation.validators import valida_cpf, valida_senha, valida_telefone
 
 class Usuario(models.Model):
   nome = models.CharField(max_length=256)
-  email = models.EmailField(max_length=256)
+  email = models.EmailField(max_length=256, unique=True)
   senha = models.CharField(max_length=8, validators=[valida_senha], unique=True)
   cpf = models.IntegerField(validators=[valida_cpf], unique=True)
   data_nascimento = models.DateField(null=True)
