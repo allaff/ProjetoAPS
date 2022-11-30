@@ -1,0 +1,22 @@
+{% extends 'base.htnml' %}
+{% block content %}
+    <h1>Resgistro</h1>
+    <form action="{% url 'usuario:register' %}" method="post">
+        {% csrf_token %}
+        {% for field in registration_form %}
+            <p>
+                {{ field.label_tag }}<br>
+                {{ field }}
+
+                {% if field.help_text %}
+                    <small style="color: grey;">{{ field.help_text }}</small>
+                {% endif %}
+
+                {% if field.errors %}
+                    <p style="color: red;">{{ error }}</p>
+                {% endif %}
+            </p>
+        {{ form.as_p }}
+        <button type="submit">Registrar</button>
+{% endblock content %}
+

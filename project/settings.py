@@ -49,8 +49,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken', # rodar migrations
     'django_cleanup.apps.CleanupConfig',
     'validation',
-
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
